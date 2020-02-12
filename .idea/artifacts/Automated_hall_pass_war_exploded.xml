@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Automated-hall-pass:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Automated_hall_pass_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Automated-hall-pass/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Automated-hall-pass" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
