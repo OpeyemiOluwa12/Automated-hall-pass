@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.opeyemi.automatedhallpass.dbmodel.StudentHallEntity">
+        <table name="student_hall" schema="autopassdb" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="11"/>
+            </id>
+            <basic name="studentId">
+                <column name="student_id" precision="11"/>
+            </basic>
+            <basic name="assignedBedId">
+                <column name="assigned_bed_id" nullable="false" precision="11"/>
+            </basic>
+            <many-to-one name="studentdetailsByStudentId" optional="true"
+                         target-entity="com.opeyemi.automatedhallpass.dbmodel.StudentdetailsEntity">
+                <join-column name="student_id" referenced-column-name="id"/>
+            </many-to-one>
+            <many-to-one name="bedspaceByAssignedBedId" optional="true"
+                         target-entity="com.opeyemi.automatedhallpass.dbmodel.BedspaceEntity">
+                <join-column name="assigned_bed_id" nullable="false" referenced-column-name="id"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

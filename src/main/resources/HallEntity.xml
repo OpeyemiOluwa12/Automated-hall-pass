@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.opeyemi.automatedhallpass.dbmodel.HallEntity">
+        <table name="hall" schema="autopassdb" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="11"/>
+            </id>
+            <basic name="hallNo">
+                <column name="hall_no" precision="11"/>
+            </basic>
+            <basic name="hallDetails">
+                <column name="hall_details" nullable="false"/>
+            </basic>
+            <one-to-many name="roomsById" mapped-by="hallByHallId"
+                         target-entity="com.opeyemi.automatedhallpass.dbmodel.RoomsEntity"/>
+        </attributes>
+    </entity>
+</entity-mappings>

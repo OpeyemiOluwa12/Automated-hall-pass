@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.opeyemi.automatedhallpass.dbmodel.StudentdetailsEntity">
+        <table name="studentdetails" schema="autopassdb" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="11"/>
+            </id>
+            <basic name="firstName">
+                <column name="first_name"/>
+            </basic>
+            <basic name="lastName">
+                <column name="last_name"/>
+            </basic>
+            <basic name="matricNo">
+                <column name="matric_no"/>
+            </basic>
+            <basic name="faculty">
+                <column name="faculty"/>
+            </basic>
+            <basic name="course">
+                <column name="course"/>
+            </basic>
+            <basic name="level">
+                <column name="level"/>
+            </basic>
+            <basic name="gender">
+                <column name="gender"/>
+            </basic>
+            <basic name="homeAddress">
+                <column name="home_address"/>
+            </basic>
+            <basic name="phoneNo">
+                <column name="phone_no" precision="11"/>
+            </basic>
+            <basic name="emailAddress">
+                <column name="email_address"/>
+            </basic>
+            <one-to-many name="hallpassesById" mapped-by="studentdetailsByStudentId"
+                         target-entity="com.opeyemi.automatedhallpass.dbmodel.HallpassEntity"/>
+            <one-to-many name="studentHallsById" mapped-by="studentdetailsByStudentId"
+                         target-entity="com.opeyemi.automatedhallpass.dbmodel.StudentHallEntity"/>
+        </attributes>
+    </entity>
+</entity-mappings>
