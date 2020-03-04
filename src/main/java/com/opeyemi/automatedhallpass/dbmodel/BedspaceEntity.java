@@ -59,7 +59,7 @@ public class BedspaceEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "room_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "room_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     public RoomsEntity getRoomsByRoomId() {
         return roomsByRoomId;
     }

@@ -8,8 +8,8 @@
             <id name="id">
                 <column name="id" precision="11"/>
             </id>
-            <basic name="hallNo">
-                <column name="hall_no" precision="11"/>
+            <basic name="hallId">
+                <column name="hall_Id" length="25"/>
             </basic>
             <basic name="hallDetails">
                 <column name="hall_details" nullable="false"/>

@@ -167,7 +167,7 @@ public class HallpassEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "hall_admin_id", referencedColumnName = "id")
+    @JoinColumn(name = "hall_admin_id", referencedColumnName = "id", insertable = false, updatable = false)
     public AdmindetailsEntity getAdmindetailsByHallAdminId() {
         return admindetailsByHallAdminId;
     }
@@ -177,7 +177,7 @@ public class HallpassEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "student_id", referencedColumnName = "id")
+    @JoinColumn(name = "student_id", referencedColumnName = "id", insertable = false, updatable = false)
     public StudentdetailsEntity getStudentdetailsByStudentId() {
         return studentdetailsByStudentId;
     }

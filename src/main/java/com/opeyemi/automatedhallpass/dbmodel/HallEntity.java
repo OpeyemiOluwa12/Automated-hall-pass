@@ -1,14 +1,15 @@
 package com.opeyemi.automatedhallpass.dbmodel;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Objects;
 
 @Entity
 @Table(name = "hall", schema = "autopassdb", catalog = "")
-public class HallEntity {
+public class HallEntity implements Serializable {
     private int id;
-    private int hallNo;
+    private String hallId;
     private String hallDetails;
     private Collection<RoomsEntity> roomsById;
 
@@ -23,13 +24,13 @@ public class HallEntity {
     }
 
     @Basic
-    @Column(name = "hall_no", nullable = false)
-    public int getHallNo() {
-        return hallNo;
+    @Column(name = "hall_Id", nullable = false, length = 25)
+    public String getHallId() {
+        return hallId;
     }
 
-    public void setHallNo(int hallNo) {
-        this.hallNo = hallNo;
+    public void setHallId(String hallId) {
+        this.hallId = hallId;
     }
 
     @Basic
@@ -48,13 +49,13 @@ public class HallEntity {
         if (o == null || getClass() != o.getClass()) return false;
         HallEntity that = (HallEntity) o;
         return id == that.id &&
-                hallNo == that.hallNo &&
+                Objects.equals(hallId, that.hallId) &&
                 Objects.equals(hallDetails, that.hallDetails);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, hallNo, hallDetails);
+        return Objects.hash(id, hallId, hallDetails);
     }
 
     @OneToMany(mappedBy = "hallByHallId")

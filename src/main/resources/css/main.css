@@ -1,0 +1,38 @@
+.adminPage {
+    -fx-width: 500px;
+    -fx-border-radius: 10px;
+    -fx-overflow: hidden;
+    -fx-padding: 55px 55px 37px 55px;
+
+    /*-fx-background: #9152f8;*/
+    -fx-background-color: linear-gradient(#7579ff 0%, #b224ef 100%) 0% 0% no-repeat padding-box;
+
+}
+
+.adminUsername{
+}
+.table-view:row-selection{
+    -fx-border-color: #000000;
+
+}
+.table-view:row-selection .column-header-background .nested-column-header .table-column .label{
+    -fx-font-family: "Roboto Medium";
+    -fx-wrap-text: true;
+    -fx-pref-width: 30px;
+
+}
+.table-view:row-selection .column-header-background .nested-column-header .table-column{
+    -fx-border-color: #000000;
+    -fx-background-color: #3beddd;
+
+
+
+}
+.table-view:row-selection .column-header-background .nested-column-header{
+    -fx-pref-height: 70px;
+}
+
+.jfx-combo-box .text{
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 16px;
+}

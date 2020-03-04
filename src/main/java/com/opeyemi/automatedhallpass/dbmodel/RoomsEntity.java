@@ -92,7 +92,7 @@ public class RoomsEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "hall_id", referencedColumnName = "id")
+    @JoinColumn(name = "hall_id", referencedColumnName = "id", insertable = false, updatable = false)
     public HallEntity getHallByHallId() {
         return hallByHallId;
     }

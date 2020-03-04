@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opeyemi.automatedhallpass.controller.Pass">
+   <children>
+      <VBox spacing="20.0" style="-fx-background-color: #3beddd;">
+         <children>
+            <HBox alignment="CENTER" prefHeight="189.0" prefWidth="600.0" spacing="20.0" style="-fx-background-color: #3beddd;">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label prefHeight="189.0" prefWidth="292.0" text="BABCOCK UNIVERSITY ILISHAN-REMO, NIGERIA" wrapText="true">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../static/images/bg-02.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Roboto Medium" size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="name" promptText="Name">
+                           <font>
+                              <Font name="Roboto Light" size="18.0" />
+                           </font>
+                        </JFXTextField>
+                        <HBox>
+                           <children>
+                              <JFXTextField fx:id="faculty" promptText="Faculty">
+                                 <font>
+                                    <Font name="Roboto Light" size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="matricNo" promptText="Matric no">
+                                 <font>
+                                    <Font name="Roboto Light" size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <JFXTextField fx:id="level" promptText="Level">
+                                 <font>
+                                    <Font name="Roboto Light" size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="course" promptText="Course">
+                                 <font>
+                                    <Font name="Roboto Light" size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <JFXTextField fx:id="hall" promptText="Hall ">
+                                 <font>
+                                    <Font name="Roboto Light" size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="roomNo" promptText="Room no">
+                                 <font>
+                                    <Font name="Roboto Light" size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0">
+                     <children>
+                        <Label prefHeight="48.0" prefWidth="292.0" style="-fx-background-color: #00000033;" text="LONG DISTANCE CARD FORM" wrapText="true">
+                           <font>
+                              <Font name="Roboto Medium" size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXTextArea fx:id="address" prefHeight="113.0" prefWidth="300.0" promptText="Home Address">
+                           <font>
+                              <Font name="Roboto Light" size="18.0" />
+                           </font>
+                        </JFXTextArea>
+                        <HBox>
+                           <children>
+                              <JFXTextField fx:id="phone" promptText="Phone">
+                                 <font>
+                                    <Font name="Roboto Light" size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="email" promptText="Email">
+                                 <font>
+                                    <Font name="Roboto Light" size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children></HBox>
+            <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+               <children>
+                  <TableView fx:id="table" editable="true" fixedCellSize="0.0" prefWidth="800.0" style="-fx-background-color: #3beddd;">
+                    <columns>
+                      <TableColumn text="Booking Date" />
+                      <TableColumn text="Destination" />
+                        <TableColumn text="Purpose of Visit" />
+                        <TableColumn text="Name and Address of host" />
+                        <TableColumn prefWidth="91.0" text="Time out" />
+                        <TableColumn prefWidth="86.0" text="Time of Arrival" />
+                        <TableColumn text="Sign in" />
+                        <TableColumn text="Hall Admin" />
+                        <TableColumn text="Remarks" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

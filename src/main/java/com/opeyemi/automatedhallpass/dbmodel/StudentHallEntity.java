@@ -58,7 +58,7 @@ public class StudentHallEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "student_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "student_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     public StudentdetailsEntity getStudentdetailsByStudentId() {
         return studentdetailsByStudentId;
     }
@@ -68,7 +68,7 @@ public class StudentHallEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "assigned_bed_id", referencedColumnName = "id")
+    @JoinColumn(name = "assigned_bed_id", referencedColumnName = "id", insertable = false, updatable = false)
     public BedspaceEntity getBedspaceByAssignedBedId() {
         return bedspaceByAssignedBedId;
     }
