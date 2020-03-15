@@ -1,28 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <StackPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opeyemi.automatedhallpass.controller.ViewStudents">
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" />
-      <TableView fx:id="students" editable="true" fixedCellSize="0.0" prefWidth="800.0" styleClass="studentDetails">
-         <columns>
-            <TableColumn fx:id="lastNameCol" text="Lastname" />
-            <TableColumn fx:id="firstNameCol" text="Firstname" />
-            <TableColumn fx:id="matricNoCol" text="Matricno" />
-            <TableColumn fx:id="facultyCol" text="Faculty" />
-            <TableColumn fx:id="courseCol" prefWidth="91.0" text="Course" />
-            <TableColumn fx:id="levelCol" prefWidth="86.0" text="Level" />
-            <TableColumn fx:id="emailAddressCol" text="Email Address" />
-            <TableColumn fx:id="hallCol" text="Hall" />
-            <TableColumn fx:id="roomNoCol" text="Roomno" />
-         </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Students Details">
+               <font>
+                  <Font name="Roboto Medium" size="24.0" />
+               </font>
+            </Text>
+            <TableView fx:id="students" editable="true" fixedCellSize="0.0" prefWidth="800.0" styleClass="studentDetails" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn fx:id="lastNameCol" text="Lastname" />
+                  <TableColumn fx:id="firstNameCol" text="Firstname" />
+                  <TableColumn fx:id="matricNoCol" text="Matricno" />
+                  <TableColumn fx:id="facultyCol" text="Faculty" />
+                  <TableColumn fx:id="courseCol" prefWidth="91.0" text="Course" />
+                  <TableColumn fx:id="levelCol" prefWidth="86.0" text="Level" />
+                  <TableColumn fx:id="emailAddressCol" text="Email Address" />
+                  <TableColumn fx:id="hallCol" text="Hall" />
+                  <TableColumn fx:id="roomNoCol" text="Roomno" />
+                  <TableColumn fx:id="viewPass" text="ViewPass" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding></VBox>
    </children>
 </StackPane>

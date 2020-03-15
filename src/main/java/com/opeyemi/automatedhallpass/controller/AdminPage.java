@@ -4,9 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import com.opeyemi.automatedhallpass.bootstrap.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,9 +35,13 @@ public class AdminPage {
     @Autowired
     Utils utils;
 
+    @Autowired
+    ContentNode contentNode;
+
     @FXML
     public void initialize() {
-
+        contentListener();
+        contentNode.setAdmin(true);
     }
 
 
@@ -73,6 +74,13 @@ public class AdminPage {
         adminHome.getChildren().clear();
         adminHome.getChildren().add(utils.loadFXML("classpath:fxml/viewstudent.fxml"));
 
+    }
+
+    private void contentListener() {
+        contentNode.adminNodeProperty().addListener((observable, oldValue, newValue) -> {
+            adminHome.getChildren().clear();
+            adminHome.getChildren().add(newValue);
+        });
     }
 
 }

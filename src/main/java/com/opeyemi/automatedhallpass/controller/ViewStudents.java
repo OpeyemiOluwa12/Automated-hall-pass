@@ -1,17 +1,14 @@
 package com.opeyemi.automatedhallpass.controller;
 
+import com.opeyemi.automatedhallpass.bootstrap.Utils;
 import com.opeyemi.automatedhallpass.dbmodel.StudentHallEntity;
 import com.opeyemi.automatedhallpass.service.AppServices;
-import com.opeyemi.automatedhallpass.testClass;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TablePosition;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,20 +49,32 @@ public class ViewStudents {
     @FXML
     private TableColumn<StudentHallEntity, String> roomNoCol;
 
+
+    @FXML
+    private TableColumn<StudentHallEntity, String> viewPass;
+
     private ObservableList<StudentHallEntity> studentList = FXCollections.observableArrayList();
 
 
     @Autowired
     private AppServices appServices;
 
+    @Autowired
+    private Data data;
+
+    @Autowired
+    ContentNode contentNode;
+
+    @Autowired
+    Utils utils;
+
     @FXML
     public void initialize() {
 
-//        loadStudents();
+        loadStudents();
 
         columnConverters();
         rowConverters();
-        students.getItems().add(new StudentHallEntity());
         students.getItems().addAll(studentList);
     }
 
@@ -79,22 +88,17 @@ public class ViewStudents {
     }
 
     private void rowConverters() {
-//    students.setRowFactory(new Callback<TableView<ObservableList<String>>, TableRow<ObservableList<String>>>() {
-//        @Override
-//        public TableRow<ObservableList<String>> call(TableView<ObservableList<String>> param) {
-//            TableRow<ObservableList<String>> row = new TableRow<>();
-////            row.setOnMouseClicked(event -> {
-////                if(event.getClickCount() == 2){
-////                    ObservableList<String> rowItem = FXCollections.observableArrayList();
-////                    students.getItems().add(rowItem);
-////                }
-////            });
-//
-//            return row;
-//        }
-//    });
+        students.setRowFactory(tv -> {
+            TableRow<StudentHallEntity> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    StudentHallEntity rowData = row.getItem();
+                    System.out.println(rowData);
+                }
+            });
+            return row;
+        });
     }
-
 
 
     private void columnConverters() {
@@ -125,6 +129,45 @@ public class ViewStudents {
 
         roomNoCol.setCellFactory(TextFieldTableCell.forTableColumn());
         roomNoCol.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getBedspaceByAssignedBedId().getRoomsByRoomId().getRoomDescription()));
+
+//
+
+
+        viewPass.setCellValueFactory(new PropertyValueFactory<>("ACTION"));
+
+        Callback<TableColumn<StudentHallEntity, String>, TableCell<StudentHallEntity, String>> cellFactory
+                = //
+                new Callback<TableColumn<StudentHallEntity, String>, TableCell<StudentHallEntity, String>>() {
+                    @Override
+                    public TableCell call(final TableColumn<StudentHallEntity, String> param) {
+                        final TableCell<StudentHallEntity, String> cell = new TableCell<StudentHallEntity, String>() {
+
+                            final Button btn = new Button("View Pass");
+
+                            @Override
+                            public void updateItem(String item, boolean empty) {
+                                super.updateItem(item, empty);
+                                if (empty) {
+                                    setGraphic(null);
+                                    setText(null);
+                                } else {
+                                    btn.setOnAction(event -> {
+                                        StudentHallEntity studentHallEntity = getTableView().getItems().get(getIndex());
+                                        System.out.println(studentHallEntity.getStudentdetailsByStudentId().getLastName()
+                                                + "   " + studentHallEntity.getStudentdetailsByStudentId().getFirstName());
+                                        data.setData(studentHallEntity);
+                                        contentNode.setAdminNode(utils.loadFXML("classpath:fxml/pass.fxml"));
+                                    });
+                                    setGraphic(btn);
+                                    setText(null);
+                                }
+                            }
+                        };
+                        return cell;
+                    }
+                };
+        viewPass.setCellFactory(cellFactory);
+
 
     }
 }

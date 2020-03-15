@@ -1,24 +1,25 @@
 package com.opeyemi.automatedhallpass.dbmodel;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "hallpass", schema = "autopassdb", catalog = "")
 public class HallpassEntity {
     private int id;
-    private Timestamp bookingDate;
+    private Date bookingDate;
     private String destination;
     private String purposeOfVisit;
     private String nameOfHost;
     private String addressOfHost;
-    private Timestamp timeOut;
-    private Timestamp timeOfArrival;
+    private Date timeOut;
+    private Date timeOfArrival;
     private String signIn;
     private Integer hallAdminId;
     private String remarks;
     private Integer studentId;
+    private String status;
     private AdmindetailsEntity admindetailsByHallAdminId;
     private StudentdetailsEntity studentdetailsByStudentId;
 
@@ -34,11 +35,11 @@ public class HallpassEntity {
 
     @Basic
     @Column(name = "booking_date", nullable = true)
-    public Timestamp getBookingDate() {
+    public Date getBookingDate() {
         return bookingDate;
     }
 
-    public void setBookingDate(Timestamp bookingDate) {
+    public void setBookingDate(Date bookingDate) {
         this.bookingDate = bookingDate;
     }
 
@@ -84,21 +85,21 @@ public class HallpassEntity {
 
     @Basic
     @Column(name = "time_out", nullable = true)
-    public Timestamp getTimeOut() {
+    public Date getTimeOut() {
         return timeOut;
     }
 
-    public void setTimeOut(Timestamp timeOut) {
+    public void setTimeOut(Date timeOut) {
         this.timeOut = timeOut;
     }
 
     @Basic
     @Column(name = "time_of_arrival", nullable = true)
-    public Timestamp getTimeOfArrival() {
+    public Date getTimeOfArrival() {
         return timeOfArrival;
     }
 
-    public void setTimeOfArrival(Timestamp timeOfArrival) {
+    public void setTimeOfArrival(Date timeOfArrival) {
         this.timeOfArrival = timeOfArrival;
     }
 
@@ -140,6 +141,16 @@ public class HallpassEntity {
 
     public void setStudentId(Integer studentId) {
         this.studentId = studentId;
+    }
+
+    @Basic
+    @Column(name = "status", nullable = true, length = 255)
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String studentId) {
+        this.status = status;
     }
 
     @Override

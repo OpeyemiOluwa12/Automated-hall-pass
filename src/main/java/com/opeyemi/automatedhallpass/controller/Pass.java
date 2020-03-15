@@ -1,13 +1,17 @@
 package com.opeyemi.automatedhallpass.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.opeyemi.automatedhallpass.dbmodel.BedspaceEntity;
+import com.opeyemi.automatedhallpass.dbmodel.HallpassEntity;
 import com.opeyemi.automatedhallpass.dbmodel.StudentHallEntity;
 import com.opeyemi.automatedhallpass.dbmodel.StudentdetailsEntity;
 import com.opeyemi.automatedhallpass.repositories.StudentDetailsRepo;
 import com.opeyemi.automatedhallpass.repositories.StudentHallRepo;
-import com.opeyemi.automatedhallpass.testClass;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TablePosition;
@@ -15,11 +19,10 @@ import javafx.scene.control.TableView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.util.Date;
+
 @Controller
 public class Pass {
-
-    @FXML
-    TableView<String> passTable;
 
     @FXML
     private JFXTextField name;
@@ -51,49 +54,75 @@ public class Pass {
     @FXML
     private JFXTextField email;
 
+    @FXML
+    private TableView<HallpassEntity> passTable;
+
+    @FXML
+    private TableColumn<HallpassEntity, Date> bookingDateCol;
+
+    @FXML
+    private TableColumn<HallpassEntity, String> destinationCol;
+
+    @FXML
+    private TableColumn<HallpassEntity, String> purposeOfVisitCol;
+
+    @FXML
+    private TableColumn<HallpassEntity, String> nameOfHostCol;
+
+    @FXML
+    private TableColumn<HallpassEntity, String> addressOfHostCol;
+
+    @FXML
+    private TableColumn<HallpassEntity, Date> timeOutCol;
+
+    @FXML
+    private TableColumn<HallpassEntity, Date> timeOfArrivalCol;
+
+    @FXML
+    private TableColumn<HallpassEntity, String> signInCol;
+
+    @FXML
+    private TableColumn<HallpassEntity, String> hallAdminCol;
+
+    @FXML
+    private TableColumn<HallpassEntity, String> remarksCol;
+
+    @FXML
+    private TableColumn<HallpassEntity, String> statusCol;
+
+
     @Autowired
     StudentDetailsRepo studentDetailsRepo;
 
     @Autowired
     StudentHallRepo studentHallRepo;
 
-    @FXML
-    private TableColumn<?, ?> bookingDateCol;
+    @Autowired
+    Data data;
 
-    @FXML
-    private TableColumn<?, ?> destinationCol;
+    @Autowired
+    ContentNode contentNode;
 
+    private ObservableList<HallpassEntity> hallpassData = FXCollections.observableArrayList();
     @FXML
-    private TableColumn<?, ?> purposeOfVisitCol;
+    private JFXButton addNewRequest;
 
-    @FXML
-    private TableColumn<?, ?> nameAndAddressOfHostCol;
-
-    @FXML
-    private TableColumn<?, ?> timeOutCol;
 
     @FXML
-    private TableColumn<?, ?> timeOfArrivalCol;
-
-    @FXML
-    private TableColumn<?, ?> signInCol;
-
-    @FXML
-    private TableColumn<?, ?> hallAdminCol;
-
-    @FXML
-    private TableColumn<?, ?> remarksCol;
-
-    @FXML
-    public void initialize(){
-
-
+    public void initialize() {
+        StudentHallEntity studentHallEntity = ((StudentHallEntity) data.getData());
+        generateStudentPass(studentHallEntity);
+        addNewRequest.visibleProperty().set(!contentNode.isAdmin());
 
     }
 
-    private void generateStudentPass(int studentId){
-       StudentHallEntity studentHallEntity = studentHallRepo.findAllByStudentId(studentId);
-      StudentdetailsEntity studentdetailsEntity =  studentHallEntity.getStudentdetailsByStudentId();
+    @FXML
+    void addNewRequest(ActionEvent event) {
+        addRow();
+    }
+
+    private void generateStudentPass(StudentHallEntity studentHallEntity) {
+        StudentdetailsEntity studentdetailsEntity = studentHallEntity.getStudentdetailsByStudentId();
         BedspaceEntity bedspaceEntity = studentHallEntity.getBedspaceByAssignedBedId();
         String hall = bedspaceEntity.getRoomsByRoomId().getHallByHallId().getHallDetails();
         int roomNo = bedspaceEntity.getRoomsByRoomId().getRoomNo();
@@ -103,11 +132,11 @@ public class Pass {
         matricNo.setText(studentdetailsEntity.getMatricNo());
         level.setText(studentdetailsEntity.getLevel());
         course.setText(studentdetailsEntity.getCourse());
-        phone.setText(""+studentdetailsEntity.getPhoneNo());
+        phone.setText("" + studentdetailsEntity.getPhoneNo());
         address.setText(studentdetailsEntity.getHomeAddress());
         email.setText(studentdetailsEntity.getEmailAddress());
         this.hall.setText(hall);
-        this.roomNo.setText(""+ roomNo);
+        this.roomNo.setText("" + roomNo);
 
     }
 
@@ -117,21 +146,22 @@ public class Pass {
     public void addRow() {
 
         // get current position
-        TablePosition pos = table.getFocusModel().getFocusedCell();
+        TablePosition pos = passTable.getFocusModel().getFocusedCell();
 
         // clear current selection
-        table.getSelectionModel().clearSelection();
+        passTable.getSelectionModel().clearSelection();
 
         // create new record and add it to the model
-        testClass.Data data = new testClass.Data(0d, 0d);
-        table.getItems().add(data);
+        HallpassEntity data = new HallpassEntity();
+        data.setBookingDate(new Date());
+        passTable.getItems().add(data);
 
         // get last row
-        int row = table.getItems().size() - 1;
-        table.getSelectionModel().select(row, pos.getTableColumn());
+        int row = passTable.getItems().size() - 1;
+        passTable.getSelectionModel().select(row, pos.getTableColumn());
 
         // scroll to new row
-        table.scrollTo(data);
+        passTable.scrollTo(data);
 
     }
 }
