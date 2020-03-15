@@ -21,9 +21,17 @@
     -fx-pref-width: 30px;
 
 }
-.table-view:row-selection .column-header-background .nested-column-header .table-column{
+.passTable:row-selection .column-header-background .nested-column-header .table-column{
     -fx-border-color: #000000;
     -fx-background-color: #3beddd;
+
+
+
+}
+
+.studentDetails:row-selection .column-header-background .nested-column-header .table-column{
+    -fx-border-color: #000000;
+    -fx-background-color: #FFFFFF;
 
 
 

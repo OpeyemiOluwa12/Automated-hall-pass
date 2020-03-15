@@ -7,7 +7,10 @@ import com.opeyemi.automatedhallpass.dbmodel.StudentHallEntity;
 import com.opeyemi.automatedhallpass.dbmodel.StudentdetailsEntity;
 import com.opeyemi.automatedhallpass.repositories.StudentDetailsRepo;
 import com.opeyemi.automatedhallpass.repositories.StudentHallRepo;
+import com.opeyemi.automatedhallpass.testClass;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +19,7 @@ import org.springframework.stereotype.Controller;
 public class Pass {
 
     @FXML
-    TableView<String> table;
+    TableView<String> passTable;
 
     @FXML
     private JFXTextField name;
@@ -55,6 +58,33 @@ public class Pass {
     StudentHallRepo studentHallRepo;
 
     @FXML
+    private TableColumn<?, ?> bookingDateCol;
+
+    @FXML
+    private TableColumn<?, ?> destinationCol;
+
+    @FXML
+    private TableColumn<?, ?> purposeOfVisitCol;
+
+    @FXML
+    private TableColumn<?, ?> nameAndAddressOfHostCol;
+
+    @FXML
+    private TableColumn<?, ?> timeOutCol;
+
+    @FXML
+    private TableColumn<?, ?> timeOfArrivalCol;
+
+    @FXML
+    private TableColumn<?, ?> signInCol;
+
+    @FXML
+    private TableColumn<?, ?> hallAdminCol;
+
+    @FXML
+    private TableColumn<?, ?> remarksCol;
+
+    @FXML
     public void initialize(){
 
 
@@ -78,6 +108,30 @@ public class Pass {
         email.setText(studentdetailsEntity.getEmailAddress());
         this.hall.setText(hall);
         this.roomNo.setText(""+ roomNo);
+
+    }
+
+    /**
+     * Insert a new default row to the table, select a cell of it and scroll to it.
+     */
+    public void addRow() {
+
+        // get current position
+        TablePosition pos = table.getFocusModel().getFocusedCell();
+
+        // clear current selection
+        table.getSelectionModel().clearSelection();
+
+        // create new record and add it to the model
+        testClass.Data data = new testClass.Data(0d, 0d);
+        table.getItems().add(data);
+
+        // get last row
+        int row = table.getItems().size() - 1;
+        table.getSelectionModel().select(row, pos.getTableColumn());
+
+        // scroll to new row
+        table.scrollTo(data);
 
     }
 }

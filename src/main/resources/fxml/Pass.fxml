@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -16,11 +18,11 @@
    <children>
       <VBox spacing="20.0" style="-fx-background-color: #3beddd;">
          <children>
-            <HBox alignment="CENTER" prefHeight="189.0" prefWidth="600.0" spacing="20.0" style="-fx-background-color: #3beddd;">
+            <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #3beddd;">
                <children>
-                  <VBox>
+                  <VBox spacing="10.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="189.0" prefWidth="292.0" text="BABCOCK UNIVERSITY ILISHAN-REMO, NIGERIA" wrapText="true">
+                        <Label prefHeight="189.0" prefWidth="300.0" text="BABCOCK UNIVERSITY ILISHAN-REMO, NIGERIA" wrapText="true">
                            <graphic>
                               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -37,42 +39,42 @@
                               <Font name="Roboto Light" size="18.0" />
                            </font>
                         </JFXTextField>
-                        <HBox>
+                        <HBox spacing="10.0">
                            <children>
-                              <JFXTextField fx:id="faculty" promptText="Faculty">
+                              <JFXTextField fx:id="faculty" promptText="Faculty" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Roboto Light" size="18.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="matricNo" promptText="Matric no">
+                              <JFXTextField fx:id="matricNo" promptText="Matric no" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Roboto Light" size="18.0" />
                                  </font>
                               </JFXTextField>
                            </children>
                         </HBox>
-                        <HBox>
+                        <HBox spacing="10.0">
                            <children>
-                              <JFXTextField fx:id="level" promptText="Level">
+                              <JFXTextField fx:id="level" promptText="Level" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Roboto Light" size="18.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="course" promptText="Course">
+                              <JFXTextField fx:id="course" promptText="Course" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Roboto Light" size="18.0" />
                                  </font>
                               </JFXTextField>
                            </children>
                         </HBox>
-                        <HBox>
+                        <HBox spacing="10.0">
                            <children>
-                              <JFXTextField fx:id="hall" promptText="Hall ">
+                              <JFXTextField fx:id="hall" promptText="Hall " HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Roboto Light" size="18.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="roomNo" promptText="Room no">
+                              <JFXTextField fx:id="roomNo" promptText="Room no" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Roboto Light" size="18.0" />
                                  </font>
@@ -81,7 +83,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0">
+                  <VBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0" spacing="10.0" HBox.hgrow="ALWAYS">
                      <children>
                         <Label prefHeight="48.0" prefWidth="292.0" style="-fx-background-color: #00000033;" text="LONG DISTANCE CARD FORM" wrapText="true">
                            <font>
@@ -93,14 +95,14 @@
                               <Font name="Roboto Light" size="18.0" />
                            </font>
                         </JFXTextArea>
-                        <HBox>
+                        <HBox spacing="10.0">
                            <children>
-                              <JFXTextField fx:id="phone" promptText="Phone">
+                              <JFXTextField fx:id="phone" promptText="Phone" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Roboto Light" size="18.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="email" promptText="Email">
+                              <JFXTextField fx:id="email" promptText="Email" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Roboto Light" size="18.0" />
                                  </font>
@@ -110,19 +112,19 @@
                      </children>
                   </VBox>
                </children></HBox>
-            <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                <children>
-                  <TableView fx:id="table" editable="true" fixedCellSize="0.0" prefWidth="800.0" style="-fx-background-color: #3beddd;">
+                  <TableView fx:id="passTable" editable="true" fixedCellSize="0.0" style="-fx-background-color: #3beddd;" styleClass="passTable" HBox.hgrow="ALWAYS">
                     <columns>
-                      <TableColumn text="Booking Date" />
-                      <TableColumn text="Destination" />
-                        <TableColumn text="Purpose of Visit" />
-                        <TableColumn text="Name and Address of host" />
-                        <TableColumn prefWidth="91.0" text="Time out" />
-                        <TableColumn prefWidth="86.0" text="Time of Arrival" />
-                        <TableColumn text="Sign in" />
-                        <TableColumn text="Hall Admin" />
-                        <TableColumn text="Remarks" />
+                      <TableColumn fx:id="bookingDateCol" text="Booking Date" />
+                      <TableColumn fx:id="destinationCol" text="Destination" />
+                        <TableColumn fx:id="purposeOfVisitCol" text="Purpose of Visit" />
+                        <TableColumn fx:id="nameAndAddressOfHostCol" text="Name and Address of host" />
+                        <TableColumn fx:id="timeOutCol" prefWidth="91.0" text="Time out" />
+                        <TableColumn fx:id="timeOfArrivalCol" prefWidth="86.0" text="Time of Arrival" />
+                        <TableColumn fx:id="signInCol" text="Sign in" />
+                        <TableColumn fx:id="hallAdminCol" text="Hall Admin" />
+                        <TableColumn fx:id="remarksCol" text="Remarks" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -130,7 +132,19 @@
                   </TableView>
                </children>
             </HBox>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <JFXButton buttonType="RAISED" style="-fx-background-color: White;" text="Add New Request">
+                     <font>
+                        <Font name="Roboto Medium" size="16.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
          </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
       </VBox>
    </children>
 </StackPane>

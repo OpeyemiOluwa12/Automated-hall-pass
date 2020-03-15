@@ -16,7 +16,7 @@ public class StudentdetailsEntity {
     private String level;
     private String gender;
     private String homeAddress;
-    private int phoneNo;
+    private String phoneNo;
     private String emailAddress;
     private Collection<HallpassEntity> hallpassesById;
     private Collection<StudentHallEntity> studentHallsById;
@@ -113,11 +113,11 @@ public class StudentdetailsEntity {
 
     @Basic
     @Column(name = "phone_no", nullable = false)
-    public int getPhoneNo() {
+    public String  getPhoneNo() {
         return phoneNo;
     }
 
-    public void setPhoneNo(int phoneNo) {
+    public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
     }
 

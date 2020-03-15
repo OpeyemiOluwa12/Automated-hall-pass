@@ -89,7 +89,7 @@
                   <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXTextArea>
-            <JFXButton fx:id="save" buttonType="RAISED" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: #7579ff;" text="Save" textFill="WHITE">
+            <JFXButton fx:id="save" buttonType="RAISED" onAction="#save" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: #7579ff;" text="Save" textFill="WHITE">
                <font>
                   <Font name="Roboto Bold" size="24.0" />
                </font>
