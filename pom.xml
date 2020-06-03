@@ -95,7 +95,7 @@
                     <vendor>Tindrah</vendor>
                     <mainClass>com.opeyemi.automatedhallpass.AutomatedHallPassApplication</mainClass>
                     <needShortcut>true</needShortcut>
-                    <appName>Automatedhallpass</appName>
+                    <appName>Automatedhallpass1</appName>
                     <verbose>false</verbose>
                     <nativeReleaseVersion/>
                     <allPermissions>true</allPermissions>
