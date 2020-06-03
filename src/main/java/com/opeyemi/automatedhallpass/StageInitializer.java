@@ -24,7 +24,7 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
     private final ApplicationContext ac;
 
     StageInitializer(@Value("${spring.application.ui.title}") String applicationTitle,
-                     @Value("classpath:fxml/adminpage.fxml") Resource resource,
+                     @Value("classpath:fxml/homePage.fxml") Resource resource,
                      ApplicationContext ac) {
 
         this.applicationTitle = applicationTitle;

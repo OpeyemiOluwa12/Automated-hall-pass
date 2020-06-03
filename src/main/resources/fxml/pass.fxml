@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opeyemi.automatedhallpass.controller.Pass">
+<StackPane fx:id="mainPane" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opeyemi.automatedhallpass.controller.Pass">
    <children>
       <VBox spacing="20.0" style="-fx-background-color: #3beddd;">
          <children>
@@ -127,6 +127,7 @@
                         <TableColumn fx:id="hallAdminCol" text="Hall Admin" />
                         <TableColumn fx:id="remarksCol" text="Remarks" />
                         <TableColumn fx:id="statusCol" text="Status" />
+                        <TableColumn fx:id="saveCol" text="Save" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -134,7 +135,7 @@
                   </TableView>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT">
+            <HBox alignment="CENTER_LEFT" spacing="20.0">
                <children>
                   <JFXButton fx:id="addNewRequest" buttonType="RAISED" onAction="#addNewRequest" style="-fx-background-color: White;" text="Add New Request">
                      <font>

@@ -31,3 +31,5 @@ build/
 .vscode/
 
 /database/
+/roles.txt
+/studentLogin.txt

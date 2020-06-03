@@ -16,6 +16,9 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <hallpass.build.dir>build/hallpass</hallpass.build.dir>
+        <app.resource.data.dir>database/database</app.resource.data.dir>
+
     </properties>
     <dependencies>
         <dependency>
@@ -77,9 +80,50 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.zenjava</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>8.8.3</version>
+                <configuration>
+                    <vendor>Tindrah</vendor>
+                    <mainClass>com.opeyemi.automatedhallpass.AutomatedHallPassApplication</mainClass>
+                    <needShortcut>true</needShortcut>
+                    <appName>Automatedhallpass</appName>
+                    <verbose>false</verbose>
+                    <nativeReleaseVersion/>
+                    <allPermissions>true</allPermissions>
+                    <jfxMainAppJarName>hallpass.jar</jfxMainAppJarName>
+                    <jfxAppOutputDir>${hallpass.build.dir}/app</jfxAppOutputDir>
+                    <nativeOutputDir>${hallpass.build.dir}/native</nativeOutputDir>
+                    <additionalAppResources>${app.resource.data.dir} </additionalAppResources>
+
+                </configuration>
+
+            </plugin>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${hallpass.build.dir}</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
+
 </project>

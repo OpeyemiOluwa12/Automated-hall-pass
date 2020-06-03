@@ -1,11 +1,11 @@
 package com.opeyemi.automatedhallpass.controller;
 
-import com.jfoenix.controls.JFXAlert;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import com.opeyemi.automatedhallpass.bootstrap.AppUtils;
 import com.opeyemi.automatedhallpass.bootstrap.Utils;
 import com.opeyemi.automatedhallpass.dbmodel.AdmindetailsEntity;
+import com.opeyemi.automatedhallpass.dbmodel.StudentdetailsEntity;
 import com.opeyemi.automatedhallpass.service.AppServices;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,10 +20,11 @@ import java.io.File;
 import java.io.IOException;
 
 @Controller
-public class AdminLogin {
+public class StudentLogin {
 
     @FXML
-    StackPane loginPane;
+    private StackPane loginPane;
+
     @FXML
     private JFXTextField username;
 
@@ -33,27 +34,22 @@ public class AdminLogin {
     @FXML
     private JFXButton login;
 
+
     @Autowired
     private AppServices appServices;
 
     @Autowired
     private Utils utils;
-
-    @FXML
-    public void initialize() {
-
-    }
-
-
     @FXML
     void login(ActionEvent event) {
-        AdmindetailsEntity admindetailsEntity = appServices.findAdmin(username.getText(), password.getText());
+        StudentdetailsEntity studentdetailsEntity = appServices.findStudents(username.getText(), password.getText());
 
-        if (admindetailsEntity != null) {
+        if (studentdetailsEntity != null) {
 
-            File adminLogin = new File(AppUtils.ADMIN_LOGIN);
+            File studentLogin = new File(AppUtils.STUDENT_LOGIN);
             try {
-                FileUtils.writeStringToFile(adminLogin, "loggedin", "UTF-8");
+                FileUtils.writeStringToFile(studentLogin, "loggedin", "UTF-8" , false);
+                FileUtils.writeStringToFile(studentLogin, "," + studentdetailsEntity.getId(), "UTF-8", true);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -65,7 +61,7 @@ public class AdminLogin {
             alert.show();
             StackPane homePage = ((StackPane) loginPane.getParent());
             homePage.getChildren().clear();
-            Node adminPage = utils.loadFXML("classpath:fxml/adminpage.fxml");
+            Node adminPage = utils.loadFXML("classpath:fxml/studentpage.fxml");
             homePage.getChildren().add(adminPage);
 
         } else {
@@ -76,6 +72,5 @@ public class AdminLogin {
             alert.setContentText("Invalid Username or Password");
             alert.show();
         }
-
     }
 }

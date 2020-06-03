@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StudentDetailsRepo extends JpaRepository<StudentdetailsEntity, Integer> {
 
+    StudentdetailsEntity findStudentdetailsEntityByEmailAddressAndLastName(String email, String lastname);
 }

@@ -11,16 +11,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane fx:id="loginPane" style="-fx-background-color: #ffffff66;" styleClass="mainPane" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opeyemi.automatedhallpass.controller.AdminLogin">
+<StackPane fx:id="loginPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #ffffff66;" styleClass="mainPane" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opeyemi.automatedhallpass.controller.StudentLogin">
    <children>
-      <Pane prefHeight="200.0" prefWidth="200.0" styleClass="opacityColor" />
+      <Pane styleClass="opacityColor" />
       <VBox alignment="CENTER" fillWidth="false" prefHeight="400.0" prefWidth="400.0" StackPane.alignment="CENTER">
          <children>
             <VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" styleClass="adminPage" VBox.vgrow="NEVER">
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Login">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Login">
                            <font>
                               <Font name="Roboto Medium" size="36.0" />
                            </font>
@@ -29,15 +29,16 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <JFXTextField fx:id="username" focusColor="WHITE" promptText="Username" style="-fx-prompt-text-fill: white; -fx-text-fill: white;" unFocusColor="WHITE" HBox.hgrow="ALWAYS">
+                        <JFXTextField fx:id="username" focusColor="WHITE" promptText="Username" style="-fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="WHITE" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Roboto Medium" size="18.0" />
-                           </font></JFXTextField>
+                           </font>
+                        </JFXTextField>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <JFXTextField fx:id="password" focusColor="WHITE" promptText="Password" style="-fx-prompt-text-fill: white; -fx-text-fill: white;" unFocusColor="WHITE" HBox.hgrow="ALWAYS">
+                        <JFXTextField fx:id="password" focusColor="WHITE" promptText="Password" style="-fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="WHITE" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -47,13 +48,14 @@
                         </JFXTextField>
                      </children>
                   </HBox>
-                  <JFXButton fx:id="login" buttonType="RAISED" onAction="#login" prefHeight="45.0" prefWidth="97.0" style="-fx-background-color: White; -fx-text-fill: #7579ff;" text="Login">
+                  <JFXButton fx:id="login" buttonType="RAISED" onAction="#login" prefHeight="45.0" prefWidth="118.0" style="-fx-background-color: White; -fx-text-fill: #7579ff;" text="Login">
                      <font>
-                        <Font name="Roboto Medium" size="18.0" />
+                        <Font name="Roboto Medium" size="24.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></JFXButton>
+                     </cursor>
+                  </JFXButton>
                </children>
             </VBox>
          </children>

@@ -1,13 +1,16 @@
 package com.opeyemi.automatedhallpass.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.opeyemi.automatedhallpass.bootstrap.AppUtils;
 import com.opeyemi.automatedhallpass.bootstrap.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.io.File;
 import java.io.IOException;
 
 
@@ -40,10 +43,10 @@ public class AdminPage {
 
     @FXML
     public void initialize() {
+
         contentListener();
         contentNode.setAdmin(true);
     }
-
 
     @FXML
     void AssignStudent(ActionEvent event) throws IOException {

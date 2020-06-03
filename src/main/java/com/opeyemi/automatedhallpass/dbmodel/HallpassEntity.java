@@ -8,13 +8,13 @@ import java.util.Objects;
 @Table(name = "hallpass", schema = "autopassdb", catalog = "")
 public class HallpassEntity {
     private int id;
-    private Date bookingDate;
+    private String bookingDate;
     private String destination;
     private String purposeOfVisit;
     private String nameOfHost;
     private String addressOfHost;
-    private Date timeOut;
-    private Date timeOfArrival;
+    private String timeOut;
+    private String timeOfArrival;
     private String signIn;
     private Integer hallAdminId;
     private String remarks;
@@ -35,11 +35,11 @@ public class HallpassEntity {
 
     @Basic
     @Column(name = "booking_date", nullable = true)
-    public Date getBookingDate() {
+    public String getBookingDate() {
         return bookingDate;
     }
 
-    public void setBookingDate(Date bookingDate) {
+    public void setBookingDate(String bookingDate) {
         this.bookingDate = bookingDate;
     }
 
@@ -85,21 +85,21 @@ public class HallpassEntity {
 
     @Basic
     @Column(name = "time_out", nullable = true)
-    public Date getTimeOut() {
+    public String getTimeOut() {
         return timeOut;
     }
 
-    public void setTimeOut(Date timeOut) {
+    public void setTimeOut(String timeOut) {
         this.timeOut = timeOut;
     }
 
     @Basic
     @Column(name = "time_of_arrival", nullable = true)
-    public Date getTimeOfArrival() {
+    public String getTimeOfArrival() {
         return timeOfArrival;
     }
 
-    public void setTimeOfArrival(Date timeOfArrival) {
+    public void setTimeOfArrival(String timeOfArrival) {
         this.timeOfArrival = timeOfArrival;
     }
 

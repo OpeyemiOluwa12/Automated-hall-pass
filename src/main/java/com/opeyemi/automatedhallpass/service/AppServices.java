@@ -26,6 +26,8 @@ public class AppServices {
     @Autowired
     private StudentHallRepo studentHallRepo;
 
+    @Autowired
+    AdminRepo adminRepo;
 
     public List<HallEntity> findHalls() {
         return hallRepo.findAll();
@@ -53,4 +55,10 @@ public class AppServices {
         return studentHallRepo.findAll();
     }
 
+    public AdmindetailsEntity findAdmin(String emailAddress, String password){
+        return adminRepo.findAdmindetailsEntityByEmaillAddressAndAndPassword(emailAddress, password);
+    }
+    public StudentdetailsEntity findStudents(String emailAddress, String lastname){
+        return studentDetailsRepo.findStudentdetailsEntityByEmailAddressAndLastName(emailAddress, lastname);
+    }
 }
