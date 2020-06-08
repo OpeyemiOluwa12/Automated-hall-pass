@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane alignment="TOP_LEFT" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opeyemi.automatedhallpass.controller.AssignRoom">
+<StackPane fx:id="main" alignment="TOP_LEFT" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opeyemi.automatedhallpass.controller.AssignRoom">
    <children>
       <VBox spacing="50.0" StackPane.alignment="TOP_LEFT">
          <children>

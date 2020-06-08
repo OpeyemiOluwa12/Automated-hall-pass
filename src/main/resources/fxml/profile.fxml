@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opeyemi.automatedhallpass.controller.Profile">
+   <children>
+      <VBox fx:id="profile" fillWidth="false" spacing="30.0">
+         <children>
+            <HBox>
+               <children>
+                  <Label text="Profile">
+                     <font>
+                        <Font name="Roboto Medium" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox fx:id="lastname" alignment="CENTER_LEFT" spacing="20.0">
+               <children>
+                  <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Lastname:">
+                     <font>
+                        <Font name="Roboto Regular" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="lastnameText" fill="#4d4d4d" layoutX="10.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="lastname">
+                     <font>
+                        <Font name="Roboto Regular" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="firstname" spacing="20.0">
+               <children>
+                  <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Firstname:">
+                     <font>
+                        <Font name="Roboto Regular" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="firstnameText" fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="firstname">
+                     <font>
+                        <Font name="Roboto Regular" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="level" alignment="CENTER_LEFT" layoutX="10.0" layoutY="80.0" spacing="20.0">
+               <children>
+                  <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Level:">
+                     <font>
+                        <Font name="Roboto Regular" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="levelText" fill="#4d4d4d" layoutX="10.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="level">
+                     <font>
+                        <Font name="Roboto Regular" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="matric" spacing="20.0">
+               <children>
+                  <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Matric Number:">
+                     <font>
+                        <Font name="Roboto Regular" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="matricnoText" fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="matric no">
+                     <font>
+                        <Font name="Roboto Regular" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="faculty" alignment="CENTER_LEFT" layoutX="10.0" layoutY="124.0" spacing="20.0">
+               <children>
+                  <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Faculty:">
+                     <font>
+                        <Font name="Roboto Regular" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="facultyText" fill="#4d4d4d" layoutX="10.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="faculty">
+                     <font>
+                        <Font name="Roboto Regular" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="course" spacing="20.0">
+               <children>
+                  <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Course:">
+                     <font>
+                        <Font name="Roboto Regular" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="courseText" fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="course">
+                     <font>
+                        <Font name="Roboto Regular" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="gender" alignment="CENTER_LEFT" layoutX="10.0" layoutY="168.0" spacing="20.0">
+               <children>
+                  <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:">
+                     <font>
+                        <Font name="Roboto Regular" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="genderText" fill="#4d4d4d" layoutX="10.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender">
+                     <font>
+                        <Font name="Roboto Regular" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="email" alignment="CENTER_LEFT" layoutX="10.0" layoutY="212.0" spacing="20.0">
+               <children>
+                  <Text fx:id="emailL" fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Email address:">
+                     <font>
+                        <Font name="Roboto Regular" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="emailText" fill="#4d4d4d" layoutX="10.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email address">
+                     <font>
+                        <Font name="Roboto Regular" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="phone" spacing="20.0">
+               <children>
+                  <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone:">
+                     <font>
+                        <Font name="Roboto Regular" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="phoneText" fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone">
+                     <font>
+                        <Font name="Roboto Regular" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="home" alignment="CENTER_LEFT" layoutX="10.0" layoutY="256.0" spacing="20.0">
+               <children>
+                  <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Home address:">
+                     <font>
+                        <Font name="Roboto Regular" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="homeText" fill="#4d4d4d" layoutX="10.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home address">
+                     <font>
+                        <Font name="Roboto Regular" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+      </VBox>
+   </children>
+</StackPane>

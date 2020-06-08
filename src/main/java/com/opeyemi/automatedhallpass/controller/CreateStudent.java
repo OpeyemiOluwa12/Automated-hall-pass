@@ -9,11 +9,16 @@ import com.opeyemi.automatedhallpass.service.AppServices;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.layout.StackPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class CreateStudent {
+
+    @FXML
+    private StackPane main;
 
     @FXML
     private JFXTextField lastname;
@@ -82,6 +87,32 @@ public class CreateStudent {
         studentdetailsEntity.setPhoneNo(phoneNo);
         studentdetailsEntity.setHomeAddress(homeAddress);
 
-        appServices.saveStudent(studentdetailsEntity);
+       StudentdetailsEntity studentdetailsEntity1= appServices.saveStudent(studentdetailsEntity);
+       if(studentdetailsEntity1 != null){
+           Alert alert = new Alert(Alert.AlertType.INFORMATION);
+           alert.initOwner(main.getScene().getWindow());
+           alert.setTitle("Create student!!!");
+           alert.setHeaderText("Create Student");
+           alert.setContentText("Student successfully created");
+           alert.show();
+           this.lastname.setText("");
+           this.firstname.setText("");
+           this.matricNo.setText("");
+           this.level.setText("");
+           this.faculty.setText("");
+           this.course.setText("");
+           this.gender.getSelectionModel().select(-1);
+           this.emailAddress.setText("");
+           this.phoneNo.setText("");
+           this.homeAddress.setText("");
+
+       }else {
+           Alert alert = new Alert(Alert.AlertType.ERROR);
+           alert.initOwner(main.getScene().getWindow());
+           alert.setTitle("Create student!!!");
+           alert.setHeaderText("Create Student");
+           alert.setContentText("Student not successfully created, please try again");
+           alert.show();
+       }
     }
 }

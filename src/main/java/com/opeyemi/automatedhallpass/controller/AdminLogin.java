@@ -54,6 +54,7 @@ public class AdminLogin {
             File adminLogin = new File(AppUtils.ADMIN_LOGIN);
             try {
                 FileUtils.writeStringToFile(adminLogin, "loggedin", "UTF-8");
+                FileUtils.writeStringToFile(adminLogin, "," + admindetailsEntity.getId(), "UTF-8", true);
             } catch (IOException e) {
                 e.printStackTrace();
             }

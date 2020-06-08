@@ -3,8 +3,13 @@ package com.opeyemi.automatedhallpass.controller;
 import com.jfoenix.controls.JFXButton;
 import com.opeyemi.automatedhallpass.bootstrap.AppUtils;
 import com.opeyemi.automatedhallpass.bootstrap.Utils;
+import com.opeyemi.automatedhallpass.dbmodel.AdmindetailsEntity;
+import com.opeyemi.automatedhallpass.dbmodel.StudentHallEntity;
+import com.opeyemi.automatedhallpass.repositories.AdminRepo;
+import com.opeyemi.automatedhallpass.repositories.StudentHallRepo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +24,6 @@ public class AdminPage {
 
     @FXML
     private JFXButton profile;
-
-    @FXML
-    private JFXButton generatePass;
 
     @FXML
     private JFXButton assignStudent;
@@ -41,11 +43,32 @@ public class AdminPage {
     @Autowired
     ContentNode contentNode;
 
+    @Autowired
+    private AdminRepo adminRepo;
+
+    @Autowired
+    private Data data;
+
     @FXML
     public void initialize() {
 
         contentListener();
         contentNode.setAdmin(true);
+
+
+        File admin = new File(AppUtils.ADMIN_LOGIN);
+        String adminStr = null;
+        try {
+            adminStr = FileUtils.readFileToString(admin, "UTF-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String adminId = adminStr.split(",")[1];
+
+        AdmindetailsEntity admindetailsEntity =  adminRepo.findAllById(Integer.parseInt(adminId));
+        data.setData(admindetailsEntity);
+
+        viewProfile();
     }
 
     @FXML
@@ -63,13 +86,10 @@ public class AdminPage {
     }
 
     @FXML
-    void generatePass(ActionEvent event) {
-
-    }
-
-    @FXML
-    void viewProfile(ActionEvent event) {
-
+    void viewProfile() {
+        adminHome.getChildren().clear();
+        Node node = utils.loadFXML("classpath:fxml/profile.fxml");
+        adminHome.getChildren().add(node);
     }
 
     @FXML

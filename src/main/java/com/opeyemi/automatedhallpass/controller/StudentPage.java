@@ -50,22 +50,25 @@ public class StudentPage {
         }
         String studentId = studentStr.split(",")[1];
 
-      StudentHallEntity studentHallEntity =  studentHallRepo.findAllByStudentId(Integer.parseInt(studentId));
-      data.setData(studentHallEntity);
+        StudentHallEntity studentHallEntity = studentHallRepo.findAllByStudentId(Integer.parseInt(studentId));
+        data.setData(studentHallEntity);
 
 //        contentNode.setAdmin(false);
+        viewProfile();
     }
 
     @FXML
     void viewPass(ActionEvent event) {
-
+        studentHome.getChildren().clear();
         Node node = utils.loadFXML("classpath:fxml/pass.fxml");
         studentHome.getChildren().add(node);
 
     }
 
     @FXML
-    void viewProfile(ActionEvent event) {
-
+    void viewProfile() {
+        studentHome.getChildren().clear();
+        Node node = utils.loadFXML("classpath:fxml/profile.fxml");
+        studentHome.getChildren().add(node);
     }
 }

@@ -43,12 +43,12 @@ public class AppServices {
     public List<BedspaceEntity> findBedSpace() {
         return bedSpaceRepo.findAll();
     }
-    public void saveStudent(StudentdetailsEntity studentdetailsEntity){
-        studentDetailsRepo.save(studentdetailsEntity);
+    public StudentdetailsEntity saveStudent(StudentdetailsEntity studentdetailsEntity){
+       return studentDetailsRepo.save(studentdetailsEntity);
     }
 
-    public void saveStudentHall(StudentHallEntity studentHallEntity){
-        studentHallRepo.save(studentHallEntity);
+    public StudentHallEntity saveStudentHall(StudentHallEntity studentHallEntity){
+        return studentHallRepo.save(studentHallEntity);
     }
 
     public List<StudentHallEntity> getStudentHall(){

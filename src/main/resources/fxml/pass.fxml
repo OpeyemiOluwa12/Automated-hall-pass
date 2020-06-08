@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -127,7 +130,7 @@
                         <TableColumn fx:id="hallAdminCol" text="Hall Admin" />
                         <TableColumn fx:id="remarksCol" text="Remarks" />
                         <TableColumn fx:id="statusCol" text="Status" />
-                        <TableColumn fx:id="saveCol" text="Save" />
+                        <TableColumn fx:id="actionCol" text="Action" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -148,6 +151,128 @@
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
+      </VBox>
+      <VBox fx:id="newRequestContainer" alignment="CENTER" style="-fx-background-color: #00000033;" visible="false">
+         <children>
+            <VBox maxHeight="400.0" maxWidth="400.0" spacing="20.0" style="-fx-background-color: white;">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label text="Create new request">
+                           <font>
+                              <Font name="Roboto Medium" size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_LEFT" spacing="30.0">
+                     <children>
+                        <DatePicker fx:id="bookingDatePicker" prefHeight="50.0" prefWidth="250.0" promptText="Booking Date" />
+                        <JFXTextField fx:id="destinationText" prefHeight="50.0" prefWidth="250.0" promptText="Destination">
+                           <font>
+                              <Font name="Roboto Light" size="18.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_LEFT" spacing="30.0">
+                     <children>
+                        <JFXTextField fx:id="purposeOfVistText" prefHeight="50.0" prefWidth="250.0" promptText="Purpose of Visit">
+                           <font>
+                              <Font name="Roboto Light" size="18.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="nameOfHostText" prefHeight="50.0" prefWidth="250.0" promptText="Name of host">
+                           <font>
+                              <Font name="Roboto Light" size="18.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_LEFT" spacing="30.0">
+                     <children>
+                        <JFXTextField fx:id="addressOfHostText" prefHeight="50.0" prefWidth="250.0" promptText="Address of host">
+                           <font>
+                              <Font name="Roboto Light" size="18.0" />
+                           </font>
+                        </JFXTextField>
+                        <DatePicker fx:id="timeOutPicker" prefHeight="50.0" prefWidth="250.0" promptText="Time out" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_LEFT" spacing="30.0">
+                     <children>
+                        <DatePicker fx:id="timeOfArrivalPicker" prefHeight="50.0" prefWidth="250.0" promptText="Time of Arrival" />
+                        <JFXTextField fx:id="signOutText" prefHeight="50.0" prefWidth="250.0" promptText="Sign out">
+                           <font>
+                              <Font name="Roboto Light" size="18.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox spacing="20.0">
+                     <children>
+                        <JFXButton fx:id="saveRequest" buttonType="RAISED" onAction="#saveRequest" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: #7579ff;" text="Save" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="cancel" buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#cancelRequest" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: red;" text="Cancel" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox fx:id="requestStatusContainer" alignment="CENTER" layoutX="10.0" layoutY="10.0" style="-fx-background-color: #00000033;" visible="false">
+         <children>
+            <VBox maxHeight="400.0" maxWidth="400.0" spacing="20.0" style="-fx-background-color: white;">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label text="Request Status">
+                           <font>
+                              <Font name="Roboto Medium" size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_LEFT" spacing="30.0">
+                     <children>
+                        <JFXComboBox fx:id="status" prefHeight="50.0" prefWidth="250.0" promptText="Request Status" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_LEFT" spacing="30.0">
+                     <children>
+                        <TextArea fx:id="remarks" prefHeight="400.0" prefWidth="250.0" promptText="Remarks" wrapText="true" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="20.0">
+                     <children>
+                        <JFXButton fx:id="saveRemark" buttonType="RAISED" onAction="#saveRemark" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: #7579ff;" text="Save" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#cancelRemark" prefHeight="49.0" prefWidth="137.0" style="-fx-background-color: red;" text="Cancel" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </VBox>
+         </children>
       </VBox>
    </children>
 </StackPane>

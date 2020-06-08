@@ -80,6 +80,7 @@ public class ViewStudents {
 
     private void loadStudents() {
         List<StudentHallEntity> studentHallEntityList = appServices.getStudentHall();
+        studentList.clear();
         studentList.addAll(studentHallEntityList);
     }
 

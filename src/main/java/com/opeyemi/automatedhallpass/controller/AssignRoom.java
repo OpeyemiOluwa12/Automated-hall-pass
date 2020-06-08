@@ -7,6 +7,8 @@ import com.opeyemi.automatedhallpass.service.AppServices;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.layout.StackPane;
 import javafx.util.StringConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,10 @@ import java.util.List;
 
 @Controller
 public class AssignRoom {
+
+    @FXML
+    private StackPane main;
+
     @FXML
     private JFXComboBox<StudentdetailsEntity> selectStudent;
 
@@ -55,7 +61,30 @@ public class AssignRoom {
         studentHallEntity.setAssignedBedId(bedSpaceId);
         studentHallEntity.setStudentId(studentId);
 
-        appServices.saveStudentHall(studentHallEntity);
+      StudentHallEntity studentHallEntity1 =  appServices.saveStudentHall(studentHallEntity);
+
+
+        if(studentHallEntity1 != null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initOwner(main.getScene().getWindow());
+            alert.setTitle("Assign Student!!!");
+            alert.setHeaderText("Assign Student");
+            alert.setContentText("Student successfully assigned to hall");
+            alert.show();
+
+            selectStudent.getSelectionModel().select(-1);
+            selectHall.getSelectionModel().select(-1);
+            SelectRoom.getSelectionModel().select(-1);
+            SelectBedSpace.getSelectionModel().select(-1);
+
+        }else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(main.getScene().getWindow());
+            alert.setTitle("Assign Student!!!");
+            alert.setHeaderText("Assign Student");
+            alert.setContentText("Student not successfully assigned to hall");
+            alert.show();
+        }
     }
 
     private void populateHallCombo() {

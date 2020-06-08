@@ -10,4 +10,6 @@ import java.util.List;
 public interface HallPassRepo extends JpaRepository<HallpassEntity, Integer> {
 
     List<HallpassEntity> findAllByStudentId(int studentId);
+
+
 }

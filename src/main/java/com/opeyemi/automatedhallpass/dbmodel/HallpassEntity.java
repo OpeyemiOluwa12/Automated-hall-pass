@@ -1,5 +1,7 @@
 package com.opeyemi.automatedhallpass.dbmodel;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
@@ -8,13 +10,22 @@ import java.util.Objects;
 @Table(name = "hallpass", schema = "autopassdb", catalog = "")
 public class HallpassEntity {
     private int id;
-    private String bookingDate;
+
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date bookingDate;
     private String destination;
     private String purposeOfVisit;
     private String nameOfHost;
     private String addressOfHost;
-    private String timeOut;
-    private String timeOfArrival;
+
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date timeOut;
+
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date timeOfArrival;
     private String signIn;
     private Integer hallAdminId;
     private String remarks;
@@ -35,11 +46,11 @@ public class HallpassEntity {
 
     @Basic
     @Column(name = "booking_date", nullable = true)
-    public String getBookingDate() {
+    public Date getBookingDate() {
         return bookingDate;
     }
 
-    public void setBookingDate(String bookingDate) {
+    public void setBookingDate(Date bookingDate) {
         this.bookingDate = bookingDate;
     }
 
@@ -85,21 +96,21 @@ public class HallpassEntity {
 
     @Basic
     @Column(name = "time_out", nullable = true)
-    public String getTimeOut() {
+    public Date getTimeOut() {
         return timeOut;
     }
 
-    public void setTimeOut(String timeOut) {
+    public void setTimeOut(Date timeOut) {
         this.timeOut = timeOut;
     }
 
     @Basic
     @Column(name = "time_of_arrival", nullable = true)
-    public String getTimeOfArrival() {
+    public Date getTimeOfArrival() {
         return timeOfArrival;
     }
 
-    public void setTimeOfArrival(String timeOfArrival) {
+    public void setTimeOfArrival(Date timeOfArrival) {
         this.timeOfArrival = timeOfArrival;
     }
 
@@ -149,7 +160,7 @@ public class HallpassEntity {
         return status;
     }
 
-    public void setStatus(String studentId) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
